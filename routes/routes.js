@@ -1,6 +1,8 @@
 const createUser = require('../controllers/signup');
 const login = require('../controllers/login');
 const auth = require('../middleware/auth');
+const addProperty = require('../controllers/addProperty');
+
 
 function routes(app){
     let version = '/api/v1';
@@ -17,6 +19,9 @@ function routes(app){
 
     // login
     app.post(`${version}/auth/signin`, login);
+
+    // add property
+    app.post(`${version}/property`, auth, addProperty);
 
     
     
